@@ -1,0 +1,19 @@
+{
+  "name": "anonchat",
+  "version": "1.0.0",
+  "description": "Anonymous Telegram-like messenger - no registration, nickname + auto ID. Private chats, groups, channels. Persian & English support.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["messenger", "telegram", "anonymous", "chat", "socket.io"],
+  "author": "Grok",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.0",
+    "socket.io": "^4.7.5",
+    "uuid": "^10.0.0",
+    "cors": "^2.8.5"
+  }
+}
