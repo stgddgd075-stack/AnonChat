@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AnonChat - Anonymous Messenger</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen active">
+      <div class="login-box">
+        <div class="logo">
+          <svg viewBox="0 0 100 100" width="80" height="80">
+            <circle cx="50" cy="50" r="45" fill="#2AABEE"/>
+            <path d="M30 55 L45 70 L70 35" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1 id="login-title">AnonChat</h1>
+        <p id="login-subtitle">Anonymous messenger · No registration</p>
+        <div class="lang-switch">
+          <button id="lang-en" class="lang-btn active" data-lang="en">English</button>
+          <button id="lang-fa" class="lang-btn" data-lang="fa">فارسی</button>
+        </div>
+        <input type="text" id="nickname-input" placeholder="Enter your nickname..." maxlength="32" autocomplete="off">
+        <button id="join-btn" class="primary-btn">Join</button>
+        <p class="hint" id="login-hint">A unique ID will be generated for you automatically</p>
+      </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="main-screen" class="screen">
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="user-info">
+            <div class="avatar" id="my-avatar">?</div>
+            <div>
+              <div class="my-name" id="my-name">—</div>
+              <div class="my-id" id="my-id">@—</div>
+            </div>
+          </div>
+          <button id="menu-btn" class="icon-btn" title="Menu">☰</button>
+        </div>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search users or chats..." autocomplete="off">
+        </div>
+        <div class="chat-list" id="chat-list">
+          <!-- chats -->
+        </div>
+        <div class="sidebar-footer">
+          <button id="new-chat-btn" class="action-btn" title="New private chat">💬</button>
+          <button id="new-group-btn" class="action-btn" title="New group">👥</button>
+          <button id="new-channel-btn" class="action-btn" title="New channel">📢</button>
+        </div>
+      </div>
+
+      <div class="chat-area" id="chat-area">
+        <div class="no-chat" id="no-chat">
+          <div class="no-chat-icon">💬</div>
+          <p id="no-chat-text">Select a chat or start a new conversation</p>
+        </div>
+        <div class="chat-view" id="chat-view" style="display:none;">
+          <div class="chat-header">
+            <button id="back-btn" class="icon-btn mobile-only">←</button>
+            <div class="chat-header-info">
+              <div class="chat-title" id="chat-title">—</div>
+              <div class="chat-subtitle" id="chat-subtitle"></div>
+            </div>
+            <button id="chat-info-btn" class="icon-btn">ℹ️</button>
+          </div>
+          <div class="messages" id="messages"></div>
+          <div class="message-input-area">
+            <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" maxlength="2000">
+            <button id="send-btn" class="send-btn">➤</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="modal-overlay" style="display:none;">
+      <div class="modal" id="modal">
+        <h3 id="modal-title">Title</h3>
+        <input type="text" id="modal-input" placeholder="">
+        <div class="modal-actions">
+          <button id="modal-cancel" class="secondary-btn">Cancel</button>
+          <button id="modal-confirm" class="primary-btn">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
